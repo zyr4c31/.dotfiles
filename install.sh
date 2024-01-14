@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ln -dfrs .bashrc ~/
+ln -fs .bashrc ~/
 
-ln -dfrs i3 ~/.config/i3
-ln -dfrs i3status ~/.config/i3status
+ln -fs i3 ~/.config/i3
+ln -fs i3status ~/.config/i3status
 
-ln -dfrs .tmux.conf ~/
+ln -fs .tmux.conf ~/
