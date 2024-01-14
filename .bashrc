@@ -4,6 +4,8 @@
 
 # If not running interactively, don't do anything
 
+alias ls='ls -a'
+
 echo $EDITOR && EDITOR=nvim
 
 xrandr --output HDMI-1-0 --auto --right-of eDP-1
