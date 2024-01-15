@@ -17,7 +17,8 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
+# font pango:DejaVu Sans Mono 10
+font pango:Liberation Sans Mono 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -38,10 +39,10 @@ exec caprine
 exec discord
 # exec steam
 
-workspace 1 output eDP-1
-workspace 2 output eDP-1
-workspace 3 output HDMI-A-1
-workspace 4 output HDMI-A-1
+workspace 1 output HDMI-0
+workspace 2 output HDMI-0
+workspace 3 output DVI-I-0
+workspace 4 output DVI-I-0
 
 focus_follows_mouse no
 

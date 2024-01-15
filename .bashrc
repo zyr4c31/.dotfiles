@@ -8,8 +8,6 @@ alias ls='ls -a'
 
 echo $EDITOR && EDITOR=nvim
 
-xrandr --output HDMI-1-0 --auto --right-of eDP-1
-
 set -o vi
 
 bind 'set completion-ignore-case on'
@@ -24,8 +22,6 @@ export GTK_THEME=Adwaita:dark
 export GTK2_RC_Files=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=adwaita-dark
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export PATH=$PATH:/home/zyr/go/bin
+
+source /usr/share/nvm/init-nvm.sh
