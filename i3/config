@@ -34,22 +34,20 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec caprine
-exec discord
-# exec steam
-
 workspace 1 output eDP-1
 workspace 2 output eDP-1
 workspace 3 output HDMI-A-1
 workspace 4 output HDMI-A-1
 
+exec caprine
+exec discord
+# exec steam
+
 focus_follows_mouse no
 
 # for_window [all] title_window_icon padding 0
-
 # for_window [all] border toggle
-
-for_window [all] border 1pixel
+# for_window [all] border 1pixel
 
 # gaps inner 0 
 # gaps outer 0 
