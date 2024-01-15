@@ -53,6 +53,7 @@ focus_follows_mouse no
 # for_window [all] title_window_icon padding 0
 # for_window [all] border toggle
 # for_window [all] border 1pixel
+for_window [all] border pixel 0
 
 # gaps inner 0 
 # gaps outer 0 
