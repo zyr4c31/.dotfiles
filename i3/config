@@ -44,13 +44,15 @@ workspace 2 output HDMI-0
 workspace 3 output DVI-I-0
 workspace 4 output DVI-I-0
 
+exec caprine
+exec discord
+# exec steam
+
 focus_follows_mouse no
 
 # for_window [all] title_window_icon padding 0
-
 # for_window [all] border toggle
-
-for_window [all] border 1pixel
+# for_window [all] border 1pixel
 
 # gaps inner 0 
 # gaps outer 0 
