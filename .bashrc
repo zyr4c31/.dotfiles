@@ -6,6 +6,8 @@
 
 alias ls='ls -a'
 
+xrandr --output HDMI-1-0 --auto --right-of eDP-1
+
 echo $EDITOR && EDITOR=nvim
 
 set -o vi
