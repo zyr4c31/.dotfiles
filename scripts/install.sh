@@ -1,10 +1,8 @@
 #!/bin/bash
 
-ln -frs nvim ~/.config/nvim
-
-# ln -frs .bashrc ~/.bashrc
-
-# ln -frs i3 ~/.config/i3
-# ln -frs i3status ~/.config/i3status
+cp -r .bashrc ~/
+cp -r i3 ~/.config/
+cp -r i3status ~/.config/
 
 ln -frs .tmux.conf ~/.tmux.conf
+ln -frs nvim ~/.config/
