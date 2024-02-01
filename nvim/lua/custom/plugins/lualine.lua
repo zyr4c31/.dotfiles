@@ -9,5 +9,5 @@ return {
             component_separators = '|',
             section_separators = '',
         },
-    },
+    }
 }
