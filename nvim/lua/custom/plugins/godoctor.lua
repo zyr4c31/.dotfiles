@@ -1,0 +1,3 @@
+return {
+  'godoctor/godoctor.vim'
+}
