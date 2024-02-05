@@ -579,6 +579,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'templ' } },
+  htmx = { filetypes = { 'templ' }},
   templ = {},
 
   lua_ls = {
