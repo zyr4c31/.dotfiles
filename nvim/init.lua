@@ -581,6 +581,7 @@ local servers = {
   html = { filetypes = { 'html', 'twig', 'hbs', 'templ' } },
   htmx = { filetypes = { 'templ' }},
   templ = {},
+  unocss = { filetypes = { 'templ'}},
 
   lua_ls = {
     Lua = {
