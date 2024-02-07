@@ -578,10 +578,11 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
+  angularls = { filetypes = { 'html' } },
   html = { filetypes = { 'html', 'twig', 'hbs', 'templ' } },
-  htmx = { filetypes = { 'templ' }},
+  htmx = { filetypes = { 'templ' } },
   templ = {},
-  unocss = { filetypes = { 'templ'}},
+  unocss = { filetypes = { 'templ' } },
 
   lua_ls = {
     Lua = {
