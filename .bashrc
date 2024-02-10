@@ -27,3 +27,6 @@ export QT_STYLE_OVERRIDE=adwaita-dark
 export PATH=$PATH:/home/zyr/go/bin
 
 source /usr/share/nvm/init-nvm.sh
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
