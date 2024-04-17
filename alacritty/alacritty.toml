@@ -2,5 +2,4 @@
 opacity = 0.8
 
 [font]
-normal = true
-family = "Monocraft"
+normal = { family = "Monocraft" }
