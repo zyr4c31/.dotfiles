@@ -79,6 +79,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+#Brightness control
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +1000 && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight +1000 && $refresh_i3status
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
