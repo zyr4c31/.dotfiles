@@ -1,5 +1,5 @@
 return {
-  'echanovski/mini.nvim',
-  version = false,
-  require('mini.animate').setup(),
+  -- 'echanovski/mini.nvim',
+  -- version = false,
+  -- require('mini.animate').setup(),
 }

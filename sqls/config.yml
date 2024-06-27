@@ -1,6 +1,6 @@
 # Set to true to use lowercase keywords instead of uppercase.
 lowercaseKeywords: false
 connections:
-  - alias: sqlite3
+  - alias: merp_test.db
     driver: sqlite3
-    dataSourceName: file:test.db
+    dataSourceName: file:/home/zyr/work/merp_api/sqlite3/test.db
