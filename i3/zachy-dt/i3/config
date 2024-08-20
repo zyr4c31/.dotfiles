@@ -1,0 +1,5 @@
+set $left HDMI-0
+set $right DVI-I-0
+
+exec_always --no-startup-id xrandr --output $left --rate 75 --left-of $right 
+exec_always --no-startup-id xrandr --output $right --auto --right-of $left

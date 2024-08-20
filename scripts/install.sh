@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # cp -r .bashrc ~/
-cp -r i3 ~/.config/
+# cp -r i3 ~/.config/
 # cp -r i3status ~/.config/
 
 rm ~/.tmux.conf
@@ -12,3 +12,5 @@ ln -frs .tmux.conf ~/.tmux.conf
 ln -frs nvim ~/.config/
 ln -frs sqls ~/.config/
 ln -frs alacritty ~/.config/
+
+ln -frs i3 ~/.config/
