@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# cp -r .bashrc ~/
+ln -frs .bashrc ~/
 # cp -r i3 ~/.config/
 # cp -r i3status ~/.config/
 
