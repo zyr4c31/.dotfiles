@@ -18,8 +18,8 @@ set $ws10 "10"
 
 # include ../i3/zachy-mllrlt/i3/config
 
-exec_always --no-startup-id xrandr --output eDP-1 --rate 144 --left-of HDMI-1-0 
-exec_always --no-startup-id xrandr --output HDMI-1-0 --auto --right-of eDP-1
+exec_always --no-startup-id xrandr --output eDP-1 --rate 144 --left-of HDMI-1-2 
+exec_always --no-startup-id xrandr --output HDMI-1-2 --auto --right-of eDP-1
 
 # exec_always --no-startup-id xrandr --output HDMI-0 --rate 75 --left-of DVI-I-0 
 # exec_always --no-startup-id xrandr --output DVI-I-0 --auto --right-of HDMI-0
