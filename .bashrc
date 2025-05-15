@@ -3,10 +3,14 @@
 #
 
 # If not running interactively, don't do anything
+#
+
+# alias source='source'
 
 alias ls='ls --color=auto -ahl'
 
-echo $EDITOR && EDITOR=nvim
+export EDITOR=nvim
+export VISUAL=nvim
 
 set -o vi
 
@@ -24,3 +28,9 @@ PS1='[\u@\h \W]\$ '
 export PATH=$PATH:/home/zyr/go/bin
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+export PATH=$PATH:~/scripts
+
+export LD_LIBRARY_PATH=/home/zyr/.local/lib/arch-mojo:$LD_LIBRARY_PATH

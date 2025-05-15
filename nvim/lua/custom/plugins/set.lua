@@ -1,6 +1,6 @@
 vim.o.relativenumber = true
 
-local tab = 4;
+local tab = 4
 
 vim.o.tabstop = tab
 vim.o.softtabstop = tab
