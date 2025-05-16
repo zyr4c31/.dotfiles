@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -670,8 +670,11 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      -- local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
-      local vue_language_server_path = '/home/zyr/n/lib/node_modules/@vue/language-server/'
+      local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
+      local typescript_plugin_path = vue_language_server_path .. '/node_modules/@vue/typescript-plugin/'
+      -- local vue_language_server_path = '/home/zyr/n/lib/node_modules/@vue/language-server/'
+
+      local vue_filetypes = { 'typescript', 'vue' }
 
       local servers = {
         -- clangd = {},
@@ -684,20 +687,28 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+
         ts_ls = {
           init_options = {
             plugins = {
               {
                 name = '@vue/typescript-plugin',
-                location = vue_language_server_path,
-                languages = { 'vue' },
+                location = typescript_plugin_path,
+                languages = vue_filetypes,
               },
             },
           },
-          filetypes = { 'typescript', 'vue' },
+          filetypes = vue_filetypes,
         },
 
-        volar = {},
+        volar = {
+          filetypes = vue_filetypes,
+          init_options = {
+            vue = {
+              hybridMode = true,
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
