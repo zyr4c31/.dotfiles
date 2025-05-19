@@ -481,8 +481,8 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'mason-org/mason.nvim', opts = {} },
-      'mason-org/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', branch = 'v1.x', opts = {} },
+      { 'mason-org/mason-lspconfig.nvim', branch = 'v1.x' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -670,9 +670,13 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
-      local typescript_plugin_path = vue_language_server_path .. '/node_modules/@vue/typescript-plugin/'
-      -- local vue_language_server_path = '/home/zyr/n/lib/node_modules/@vue/language-server/'
+      -- NOTE: v1 get_install_path
+      local registry = require 'mason-registry'
+      local vue_language_server_path = registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+
+      -- NOTE: v2 get_install_path
+
+      -- local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
 
       local vue_filetypes = { 'typescript', 'vue' }
 
@@ -693,7 +697,7 @@ require('lazy').setup({
             plugins = {
               {
                 name = '@vue/typescript-plugin',
-                location = typescript_plugin_path,
+                location = vue_language_server_path,
                 languages = vue_filetypes,
               },
             },
@@ -702,12 +706,15 @@ require('lazy').setup({
         },
 
         volar = {
-          filetypes = vue_filetypes,
-          init_options = {
-            vue = {
-              hybridMode = true,
-            },
-          },
+          -- filetypes = vue_filetypes,
+          -- init_options = {
+          --   typescript = {
+          --     tsdk = tsdk,
+          --   },
+          --   vue = {
+          --     hybridMode = true,
+          --   },
+          -- },
         },
 
         lua_ls = {
