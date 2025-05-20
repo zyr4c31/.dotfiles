@@ -29,8 +29,6 @@ export PATH=$PATH:/home/zyr/go/bin
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
 export PATH=$PATH:~/scripts
 
 export LD_LIBRARY_PATH=/home/zyr/.local/lib/arch-mojo:$LD_LIBRARY_PATH
