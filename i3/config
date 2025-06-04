@@ -16,29 +16,22 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# include ../i3/zachy-mllrlt/i3/config
+set $primary eDP-1
+set $secondary HDMI-1
 
-exec_always --no-startup-id xrandr --output eDP-1 --rate 144 --left-of HDMI-1-2 
+exec_always --no-startup-id xrandr --output $primary --rate 144 --left-of $secondary
 exec_always --no-startup-id xrandr --output HDMI-1-2 --mode 1920x1080 --rate 165 --right-of eDP-1
 
-# exec_always --no-startup-id xrandr --output HDMI-0 --rate 75 --left-of DVI-I-0 
-# exec_always --no-startup-id xrandr --output DVI-I-0 --auto --right-of HDMI-0
-
-# zachy-mllrlt
-
-set $left eDP-1
-set $right HDMI-1-2
-
-workspace $ws1 output $left
-workspace $ws2 output $left
-workspace $ws3 output $right
-workspace $ws4 output $right
-workspace $ws5 output $right
-workspace $ws6 output $right
-workspace $ws7 output $right
-workspace $ws8 output $right
-workspace $ws9 output $right
-workspace $ws10 output $right
+workspace $ws1 output $primary
+workspace $ws2 output $primary
+workspace $ws3 output $secondary
+workspace $ws4 output $secondary
+workspace $ws5 output $secondary
+workspace $ws6 output $secondary
+workspace $ws7 output $secondary
+workspace $ws8 output $secondary
+workspace $ws9 output $secondary
+workspace $ws10 output $secondary
 
 # zachy-dt
 # workspace $ws1 output HDMI-0
