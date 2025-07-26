@@ -32,3 +32,6 @@ export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export PATH=$PATH:~/scripts
 
 export LD_LIBRARY_PATH=/home/zyr/.local/lib/arch-mojo:$LD_LIBRARY_PATH
+
+# spacetimedb
+export PATH="/home/zyr/.local/bin:$PATH"

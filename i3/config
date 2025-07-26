@@ -16,11 +16,13 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-set $primary eDP-1
-set $secondary HDMI-1
+set $primary "eDP-1"
+set $secondary "DP-1"
 
-exec_always --no-startup-id xrandr --output $primary --rate 144 --left-of $secondary
-exec_always --no-startup-id xrandr --output HDMI-1-2 --mode 1920x1080 --rate 165 --right-of eDP-1
+set $fps "144"
+
+exec_always --no-startup-id xrandr --output $primary --rate $fps --left-of $secondary
+exec_always --no-startup-id xrandr --output $secondary --mode 1920x1080 --rate $fps --right-of $primary
 
 workspace $ws1 output $primary
 workspace $ws2 output $primary
