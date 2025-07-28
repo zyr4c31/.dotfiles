@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -247,7 +247,7 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'nmac427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -298,7 +298,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -379,7 +379,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -482,12 +482,12 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'mason-org/mason.nvim', branch = 'v1.x', opts = {} },
-      { 'mason-org/mason-lspconfig.nvim', branch = 'v1.x' },
+      { 'mason-org/mason.nvim', opts = {} },
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -670,17 +670,6 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-
-      -- NOTE: v1 get_install_path
-      local registry = require 'mason-registry'
-      local vue_language_server_path = registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-
-      -- NOTE: v2 get_install_path
-
-      -- local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
-
-      local vue_filetypes = { 'typescript', 'vue' }
-
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -692,35 +681,8 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-
-        ts_ls = {
-          init_options = {
-            plugins = {
-              {
-                name = '@vue/typescript-plugin',
-                location = vue_language_server_path,
-                languages = vue_filetypes,
-              },
-            },
-          },
-          filetypes = vue_filetypes,
-        },
-
-        volar = {
-          -- filetypes = vue_filetypes,
-          -- init_options = {
-          --   typescript = {
-          --     tsdk = tsdk,
-          --   },
-          --   vue = {
-          --     hybridMode = true,
-          --   },
-          -- },
-        },
-
-        html = {
-          filetypes = { 'htmldjango' },
-        },
+        -- ts_ls = {},
+        --
 
         lua_ls = {
           -- cmd = { ... },
@@ -794,7 +756,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true, python = true, typescript = true, vue = true }
+        local disable_filetypes = { c = true, cpp = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -806,7 +768,6 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        json = { 'jq' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -920,25 +881,11 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    -- 'folke/tokyonight.nvim',
-    -- priority = 1000, -- Make sure to load this before all the other start plugins.
-    -- config = function()
-    --   ---@diagnostic disable-next-line: missing-fields
-    --   require('tokyonight').setup {
-    --     styles = {
-    --       comments = { italic = false }, -- Disable italics in comments
-    --     },
-    --   }
-    --
-    --   -- Load the colorscheme here.
-    --   -- Like many other themes, this one has different styles, and you could load
-    --   -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    --   vim.cmd.colorscheme 'tokyonight-night'
-    'loctvl842/monokai-pro.nvim',
+    'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('monokai-pro').setup {
+      require('tokyonight').setup {
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
@@ -947,7 +894,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'monokai-pro'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
