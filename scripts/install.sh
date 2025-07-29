@@ -15,4 +15,4 @@ ln -frs nvim ~/.config/
 ln -frs sqls ~/.config/
 ln -frs alacritty ~/.config/
 ln -frs i3 ~/.config/
-ln -frs scripts/ ~/scripts/
+ln -frs scripts ~/
