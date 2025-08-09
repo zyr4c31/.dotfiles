@@ -21,8 +21,10 @@ set $secondary "DP-1"
 
 set $fps "144"
 
-exec_always --no-startup-id xrandr --output $primary --rate $fps --left-of $secondary
-exec_always --no-startup-id xrandr --output $secondary --mode 1920x1080 --rate $fps --right-of $primary
+exec_always autorandr
+
+# exec_always --no-startup-id xrandr --output $primary --rate $fps --left-of $secondary
+# exec_always --no-startup-id xrandr --output $secondary --mode 1920x1080 --rate $fps --right-of $primary
 
 workspace $ws1 output $primary
 workspace $ws2 output $primary
@@ -230,8 +232,8 @@ bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipbo
 
 bindsym $mod+e exec --no-startup-id nemo
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +1000 && $refresh_i3status
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight +1000 && $refresh_i3status
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 2%+ && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 2%- && $refresh_i3status
 
 # start a terminal
 #set $term alacritty
